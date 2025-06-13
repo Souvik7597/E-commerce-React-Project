@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+
+
+@layer base {
+
+    .container-width {
+        width: min(90%, 1320px);
+        margin: 0 auto;
+    }
+
+
+    .product-card:hover .product-card-button-none {
+        display: flex !important;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: #ffef97 !important;
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px !important;
+        height: 12px !important;
+    }
+
+    .top-product-shadow {
+        box-shadow: 0 0 17px 0 rgba(0, 0, 0, 0.08);
+    }
+
+    .product-card:hover .special-product-timer {
+        opacity: 0;
+    }
+
+    .invisible-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .contact-img:hover .contact-img-border{
+        border-color: #ffef97 !important;
+    }
+
+    .products-text-2{
+        display: none;
+    }
+
+}
