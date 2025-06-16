@@ -18,11 +18,11 @@ import SearchInput from "./SearchInput";
 
 
 
-export default function Header() {
+export default function Header({ cartAllProduct }) {
     const bgProps = { backgroundImage: `url(${bgImage})` }
 
     const location = useLocation();
-    
+
     const [open, setOpen] = useState(false);
 
     const [loginOpen, setLoginOpen] = useState(false);
@@ -33,16 +33,16 @@ export default function Header() {
 
     // const [addEffect, setAddEffect] =useState(false)
 
-    useEffect(()=>{
-        document.addEventListener("click",(e)=>{
+    useEffect(() => {
+        document.addEventListener("click", (e) => {
             e.stopPropagation();
             setLoginOpen(false);
             setOpen(false)
         })
 
-    },[])
+    }, [])
 
-    
+
     // window.addEventListener("resize",()=>{
     //     setAddEffect(window.innerWidth<1200)
     // })
@@ -58,37 +58,44 @@ export default function Header() {
                             navLinks.map((n, i) => (
                                 <Link key={i} to={n.link}>
                                     <li
-                                    onClick={()=> {n?.drop ? setDropOpen(!dropOpen) :null}}
+                                        onClick={() => { n?.drop ? setDropOpen(!dropOpen) : null }}
 
-                                    // onMouseOver={()=>!addEffect ? setDropOpen(true):null}
-                                    // onMouseOut={()=>!addEffect ? setDropOpen(false) : null}
+                                        // onMouseOver={()=>!addEffect ? setDropOpen(true):null}
+                                        // onMouseOut={()=>!addEffect ? setDropOpen(false) : null}
 
-                                     className="text-lg">{n.nav}</li>
-                                    {n?.drop &&<DropdownMenu setDropOpen={setDropOpen} dropOpen={dropOpen} />}
+                                        className="text-lg">{n.nav}</li>
+                                    {n?.drop && <DropdownMenu setDropOpen={setDropOpen} dropOpen={dropOpen} />}
                                 </Link>
                             ))
                         }
                     </ul>
 
                     <div className="flex items-center gap-4 order-3">
-                        <button onClick={()=>setSearchOpen(!searchOpen)} className="text-2xl md:block hidden"><GoSearch /></button>
-                        <button onClick={(e) => {e.stopPropagation();
-                            setLoginOpen(!loginOpen)}} className="text-2xl"><IoPersonOutline /></button>
-                        <button className="text-2xl"><BsCart2 /></button>
+                        <button onClick={() => setSearchOpen(!searchOpen)} className="text-2xl md:block hidden"><GoSearch /></button>
+                        <button onClick={(e) => {
+                            e.stopPropagation();
+                            setLoginOpen(!loginOpen)
+                        }} className="text-2xl"><IoPersonOutline /></button>
+                        <Link to={"/cart"} className="relative">
+                            <button className="text-2xl"><BsCart2 /></button>
+                            <span className="absolute -top-2 -right-3 text-sm h-5 w-5 text-[#232323] flex items-center justify-center border-0 rounded-full bg-[#ffef97]">
+                                {cartAllProduct?.length}
+                            </span>
+                        </Link>
                     </div>
 
                     <div className="flex gap-4 md:hidden order-1">
-                        <button onClick={(e) => {e.stopPropagation();setOpen(true)}} className="text-2xl"><GiHamburgerMenu /></button>
-                        <button onClick={()=>setSearchOpen(!searchOpen)} className="text-2xl"><GoSearch /></button>
+                        <button onClick={(e) => { e.stopPropagation(); setOpen(true) }} className="text-2xl"><GiHamburgerMenu /></button>
+                        <button onClick={() => setSearchOpen(!searchOpen)} className="text-2xl"><GoSearch /></button>
                     </div>
                 </header>
-                {location.pathname === "/"&& <Hero/>}
-                
+                {location.pathname === "/" && <Hero />}
+
                 <SideMenuBar setOpen={setOpen} open={open} />
 
                 <LoginCreatAccount setLoginOpen={setLoginOpen} loginOpen={loginOpen} />
 
-                <SearchInput setSearchOpen={setSearchOpen} searchOpen={searchOpen}/>
+                <SearchInput setSearchOpen={setSearchOpen} searchOpen={searchOpen} />
 
             </div>
         </>

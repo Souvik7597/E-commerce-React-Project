@@ -242,6 +242,7 @@ export const products = [
         rating: [<FaStar />, <FaStar />, <FaStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$50.00",
         price: "45.00",
+        count : 1,
         details: "Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!Sample Unordered List Comodous in tempor..."
     },
     {
@@ -253,6 +254,7 @@ export const products = [
         rating: [<FaStar />, <FaStar />, <FaStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$120.00",
         price: "110.00",
+        count : 1,
         details: "Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!Sample Unordered List Comodous in tempor..."
     },
     {
@@ -264,6 +266,7 @@ export const products = [
         rating: [<FaStar />, <FaStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$300.00",
         price: "275.00",
+        count : 1,
         details: "Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!Sample Unordered List Comodous in tempor..."
     },
     {
@@ -275,6 +278,7 @@ export const products = [
         rating: [<FaStar />, <FaStar />, <FaStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$150.00",
         price: "140.00",
+        count : 1,
         details: "Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!Sample Unordered List Comodous in tempor..."
     },
     {
@@ -286,6 +290,7 @@ export const products = [
         rating: [<FaStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$130.00",
         price: "120.00",
+        count : 1,
         details: "Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!Sample Unordered List Comodous in tempor..."
     },
     {
@@ -297,6 +302,7 @@ export const products = [
         rating: [<FaStar />, <FaStar />, <FaStar />, <FaStar />, <FaRegStar />],
         offerPrice: "$90.00",
         price: "85.00",
+        count : 1,
         details: "Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!Sample Unordered List Comodous in tempor..."
     },
     {
@@ -308,6 +314,7 @@ export const products = [
         rating: [<FaStar />, <FaStar />, <FaStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$200.00",
         price: "190.00",
+        count : 1,
         details: "Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!Sample Unordered List Comodous in tempor..."
     },
     {
@@ -319,6 +326,7 @@ export const products = [
         rating: [<FaStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$180.00",
         price: "170.00",
+        count : 1,
         details: "Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!Sample Unordered List Comodous in tempor..."
     },
     {
@@ -330,6 +338,7 @@ export const products = [
         rating: [<FaStar />, <FaStar />, <FaStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$220.00",
         price: "250.00",
+        count : 1,
         details: "This modern armchair features plush cushioning and a sturdy wooden frame. Ideal for both home and office use. Pair with a geometric rug for a stylish look."
     },
     {
@@ -341,6 +350,7 @@ export const products = [
         rating: [<FaStar />, <FaStar />, <FaStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$195.00",
         price: "210.00",
+        count : 1,
         details: "Upholstered in soft velvet with classic button tufting. A timeless piece that brings elegance to any room. Works beautifully in reading nooks or bedrooms."
     },
     {
@@ -352,6 +362,7 @@ export const products = [
         rating: [<FaRegStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$340.00",
         price: "370.00",
+        count : 1,
         details: "Crafted for ultimate relaxation, this recliner features a smooth leaning mechanism and breathable fabric. Ideal for your living room or study."
     },
     {
@@ -363,6 +374,7 @@ export const products = [
         rating: [<FaStar />, <FaStar />, <FaStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$120.00",
         price: "140.00",
+        count : 1,
         details: "Engineered for ergonomic comfort with a compact design. Adjustable height and mesh back support ensure all-day comfort while working or gaming."
     },
     {
@@ -374,6 +386,7 @@ export const products = [
         rating: [<FaStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$230.00",
         price: "260.00",
+        count : 1,
         details: "Walnut-finished wood legs and a curved seat give this chair its retro charm. A perfect statement piece for your living room or entryway."
     },
     {
@@ -385,6 +398,7 @@ export const products = [
         rating: [<FaStar />, <FaStar />, <FaStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$450.00",
         price: "490.00",
+        count : 1,
         details: "Crafted from genuine leather, this chair exudes sophistication. Excellent for executive offices or upscale home lounges."
     },
     {
@@ -396,6 +410,7 @@ export const products = [
         rating: [<FaRegStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$90.00",
         price: "110.00",
+        count : 1,
         details: "Lightweight yet sturdy, this chair folds easily for transport and storage. Perfect for patios, balconies, or casual indoor seating."
     },
     {
@@ -407,6 +422,7 @@ export const products = [
         rating: [<FaStar />, <FaStar />, <FaStar />, <FaStar />, <FaStar />],
         offerPrice: "$130.00",
         price: "150.00",
+        count : 1,
         details: "Features a molded seat and slim metal legs. A versatile piece that works well in kitchens or dining rooms with a contemporary theme."
     },
     {
@@ -418,6 +434,7 @@ export const products = [
         rating: [<FaStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$160.00",
         price: "190.00",
+        count : 1,
         details: "Crafted from handwoven rattan with a sturdy frame. Ideal for sunrooms or bohemian-inspired interiors. Pairs beautifully with cushions and throws."
     },
     {
@@ -429,6 +446,7 @@ export const products = [
         rating: [<FaStar />, <FaStar />, <FaStar />, <FaStar />, <FaStar />],
         offerPrice: "$115.00",
         price: "130.00",
+        count : 1,
         details: "Built from powder-coated steel, this chair is perfect for loft spaces or industrial-themed homes. Durable and easy to clean."
     },
     {
@@ -440,6 +458,7 @@ export const products = [
         rating: [<FaStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />, <FaRegStar />],
         offerPrice: "$85.00",
         price: "95.00",
+        count : 1,
         details: "Designed with child safety in mind, this chair features rounded edges, soft padding, and washable fabric. Ideal for playrooms or reading corners."
     }
 
