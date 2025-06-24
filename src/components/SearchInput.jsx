@@ -12,10 +12,10 @@ export default function SearchInput({ searchOpen, setSearchOpen }) {
     return (
         <div>
             {
-                searchOpen &&
+                searchOpen &&(
                 <div className="absolute top-20  md:right-20 z-50">
                     <div className="flex items-center mb-5">
-                        <input onChange={(e) => setSearchQuery(e.target.value)} value={searchQuery} className="bg-white w-full p-3 outline-0 border border-[#efefef]" placeholder type="text" />
+                        <input onChange={(e) => setSearchQuery(e.target.value)} value={searchQuery} className="bg-white w-full p-3 outline-0 border border-[#efefef]" placeholder="Search Product Here....." type="text" />
                         <button type="submit" className="p-3.5 text-xl bg-[#ffef97]"><IoIosSearch /></button>
                     </div>
                     {
@@ -26,7 +26,7 @@ export default function SearchInput({ searchOpen, setSearchOpen }) {
                                 products.filter((f) => f.title.toLowerCase().includes(searchQuery.toLowerCase())).map((item) => (
 
                                     <Link key={item.id} className="flex items-center gap-2.5" to={`/products/${item.id}`} onClick={() => setSearchQuery("") & setSearchOpen(false)}>
-                                        <img width={65} src={item.image} alt="" />
+                                        <img width={65} src={item.image[0]} alt="" />
 
                                         <div className="flex flex-col">
                                             <div className="text-[#232323] font-medium">
@@ -43,6 +43,7 @@ export default function SearchInput({ searchOpen, setSearchOpen }) {
                         </div>
                     }
                 </div>
+                )
             }
         </div>
     )

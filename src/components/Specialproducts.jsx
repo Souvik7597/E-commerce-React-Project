@@ -32,7 +32,9 @@ export default function Specialproducts() {
     const S = useRef(null)
     const [toggleTab, setToggleTab] = useState("Featured")
 
-    const mainProduct = toggleTab == "Featured" ? featuredProduct : toggleTab== "New Arrivals" ? newArrivalsProduct : toggleTab == "Best Sellers" ? bestSellersProduct : null
+
+
+    const mainProduct = toggleTab == "Featured" ? featuredProduct : toggleTab == "New Arrivals" ? newArrivalsProduct : toggleTab == "Best Sellers" ? bestSellersProduct : null
 
     return (
         <div className="container-width py-12  mx-auto">
@@ -47,7 +49,7 @@ export default function Specialproducts() {
                             {
                                 buttons.map((btn) => (
                                     <div key={btn.title}>
-                                        <button onClick={()=>setToggleTab(btn.title)} className={`py-2 px-3  text-[#232323] text-sm ${toggleTab === btn.title ? "bg-[#ffef97]" : "bg-[#f5f5f5]"}`}>
+                                        <button onClick={() => setToggleTab(btn.title)} className={`py-2 px-3  text-[#232323] text-sm ${toggleTab === btn.title ? "bg-[#ffef97]" : "bg-[#f5f5f5]"}`}>
                                             {btn.title}
                                         </button>
                                     </div>
@@ -63,7 +65,11 @@ export default function Specialproducts() {
 
                             {
                                 mainProduct.map((item, i) => (
-                                    <Productcard key={i} item={item} />
+                                    <div>
+
+                                        <Productcard key={i} item={item} />
+                                        
+                                    </div>
                                 ))
                             }
 

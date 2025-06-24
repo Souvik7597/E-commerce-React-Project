@@ -89,12 +89,9 @@ export default function Collection() {
             <label for="cars">Sort By</label>
             <select className="bg-white border border-[#e9e9e9] p-2 w-50 outline-0" name="products">
               <option value="Featured">Featured</option>
-              <option value="Best Selling">Best Selling</option>
               <option value="A-Z">Alphabetically, A-Z</option>
               <option value="Z-A">Alphabetically, Z-A</option>
               <option value="low to high">Price, low to high</option>
-              <option value="old to new">Date, old to new</option>
-              <option value="new to old">Date, new to old</option>
             </select>
           </form>
 

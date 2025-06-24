@@ -20,7 +20,7 @@ export default function Hero() {
 
 
     return (
-        <div className='mb-25 relative'>
+        <div className='mb-25 mt-10 relative'>
             <Swiper
                 autoplay={{
                     delay: 10000,

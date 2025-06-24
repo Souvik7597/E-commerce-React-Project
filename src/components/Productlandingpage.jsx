@@ -23,7 +23,7 @@ import { productLandingImages, productLandingButtons, products } from "../Utilit
 import { useParams } from "react-router";
 import toast, { Toaster } from 'react-hot-toast';
 
-export default function Productlandingpage({setProductId}) {
+export default function Productlandingpage({setProductId,}) {
 
   const S = useRef(null)
   const { id } = useParams();
@@ -32,14 +32,8 @@ export default function Productlandingpage({setProductId}) {
 
   const showLandingProduct = products.slice(0, 4)
 
-  const [click, setClick] = useState(product.image);
+  const [click, setClick] = useState(product.image[0]);
 
-
-
-  const handleAddToCart = (id) => {
-    setProductId(id);
-    toast.success("Product added successfully")
-  }
 
 
 
@@ -152,17 +146,9 @@ export default function Productlandingpage({setProductId}) {
             </div>
           </div>
 
-          <div className="mb-5">
-            <h6 className="text-[#666666] font-semibold mb-2">Quantity</h6>
-            <div className="flex items-center">
-              <button className="flex items-center justify-center h-10 w-10 bg-white text-[#787878] border-1 border-[#e9e9e9] text-3xl">-</button>
-              <button className="flex items-center justify-center h-10 w-10 bg-white text-[#232323] border-1 border-[#e9e9e9]">{product.count}</button>
-              <button className="flex items-center justify-center h-10 w-10 bg-white text-[#787878] border-1 border-[#e9e9e9]">+</button>
-            </div>
-          </div>
 
           <div className="flex items-center gap-5 mb-5">
-            <button onClick={() => handleAddToCart(product?.id)} className="py-3.5 px-7 font-semibold text-sm bg-[#ffef97] text-[#232323] w-1/2 hover:bg-[#232323] hover:text-white transition-colors">Add To Cart</button>
+            <button onClick={() => {setProductId(product?.id);toast.success("Product added successfully")}} className="py-3.5 px-7 font-semibold text-sm bg-[#ffef97] text-[#232323] w-1/2 hover:bg-[#232323] hover:text-white transition-colors">Add To Cart</button>
             <button className="py-3.5 px-7 font-bold text-sm bg-[#1990c6] text-white w-1/2 hover:bg-[#136f99] transition-colors">Buy It Now</button>
           </div>
 

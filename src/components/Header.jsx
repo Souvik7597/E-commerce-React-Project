@@ -18,7 +18,7 @@ import SearchInput from "./SearchInput";
 
 
 
-export default function Header({ cartAllProduct }) {
+export default function Header({ cart }) {
     const bgProps = { backgroundImage: `url(${bgImage})` }
 
     const location = useLocation();
@@ -38,6 +38,7 @@ export default function Header({ cartAllProduct }) {
             e.stopPropagation();
             setLoginOpen(false);
             setOpen(false)
+            setSearchOpen(false)
         })
 
     }, [])
@@ -49,8 +50,8 @@ export default function Header({ cartAllProduct }) {
 
     return (
         <>
-            <div style={bgProps} className="py-7 px-5 sm:px-9 md:px-12 bg-cover bg-center ">
-                <header className="flex items-center justify-between mb-6 relative">
+            <div style={bgProps} className="py-7 px-5 sm:px-9 md:px-12 bg-cover bg-center">
+                <header className="flex items-center justify-between relative">
                     <img className="order-2 md:order-1 w-30 sm:w-40 md:w-50" src={lgImage} alt="siteLogo" />
 
                     <ul className="gap-9 hidden order-2 md:flex items-center">
@@ -71,22 +72,28 @@ export default function Header({ cartAllProduct }) {
                     </ul>
 
                     <div className="flex items-center gap-4 order-3">
-                        <button onClick={() => setSearchOpen(!searchOpen)} className="text-2xl md:block hidden"><GoSearch /></button>
+                        <button onClick={(e) => {e.stopPropagation();setSearchOpen(!searchOpen)}} className="text-2xl md:block hidden"><GoSearch /></button>
+                        
                         <button onClick={(e) => {
                             e.stopPropagation();
                             setLoginOpen(!loginOpen)
                         }} className="text-2xl"><IoPersonOutline /></button>
+                        
                         <Link to={"/cart"} className="relative">
                             <button className="text-2xl"><BsCart2 /></button>
                             <span className="absolute -top-2 -right-3 text-sm h-5 w-5 text-[#232323] flex items-center justify-center border-0 rounded-full bg-[#ffef97]">
-                                {cartAllProduct?.length}
+                                {
+                                    cart.reduce((acc, crr) => crr.count + acc, 0)
+
+                                }
+                                {/* {cart.length} */}
                             </span>
                         </Link>
                     </div>
 
                     <div className="flex gap-4 md:hidden order-1">
                         <button onClick={(e) => { e.stopPropagation(); setOpen(true) }} className="text-2xl"><GiHamburgerMenu /></button>
-                        <button onClick={() => setSearchOpen(!searchOpen)} className="text-2xl"><GoSearch /></button>
+                        <button onClick={(e) => {e.stopPropagation();setSearchOpen(!searchOpen)}} className="text-2xl"><GoSearch /></button>
                     </div>
                 </header>
                 {location.pathname === "/" && <Hero />}

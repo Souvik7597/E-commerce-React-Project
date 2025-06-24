@@ -14,29 +14,32 @@ import BlogPage from "./BlogPage"
 
 import Products from "./Products"
 import ProductDetailsPage from "./components/ProductDetailsPage"
-import Cart from "./components/Cart"
-import { products } from "./Utilities/productsCollection"
+
 import { useEffect, useState } from "react"
+import CartList from "./components/CartList"
+import { products } from "./Utilities/productsCollection"
 
 
 function App() {
 
 
-  const [productId, setProductId] = useState('');
+  const [productId, setProductId] = useState(0);
 
-  const [cartAllProduct, setCartAllProduct] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
 
     const filterObject = products.filter(productItem => productItem.id == productId)
-    setCartAllProduct([...cartAllProduct, ...filterObject])
+    setCart([...cart,  ...filterObject])
 
   }, [productId])
 
 
+
+
   return (
     <>
-      <Header cartAllProduct={cartAllProduct} />
+      <Header cart={cart} />
 
       <Routes>
 
@@ -52,10 +55,10 @@ function App() {
         <Route path="/products/new_furniture" element={<ProductDetailsPage title="New Furniture" />} />
         <Route path="/products/special_furniture" element={<ProductDetailsPage title="Special Furniture" />} />
 
-        <Route path="/products/:id" element={<Productlandingpage setProductId={setProductId} />} />
+        <Route path="/products/:id" element={<Productlandingpage setProductId={setProductId}  />} />
         <Route path="/comments" element={<Comment />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/cart" element={<Cart cartAllProduct={cartAllProduct} setCartAllProduct={setCartAllProduct} />} />
+        <Route path="/cart" element={<CartList cart={cart} setCart={setCart} />} />
 
 
       </Routes>
