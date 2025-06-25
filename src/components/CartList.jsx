@@ -26,9 +26,12 @@ export default function CartList({ cart, setCart }) {
             <div>
                 {
                     cart.map((product) => (
-                        <div key={product.id} className="border border-[#efefef] grid grid-cols-2 mb-5">
-                            <div className="flex items-start gap-10 border border-[#efefef]">
-                                <img className="border border-[#efefef]" width={200} src={product?.image[0]} alt="" />
+                        <div key={product.id} className=" grid items-start xl:grid-cols-[0.5fr_1.5fr] md:grid-cols-2 lg:grid-cols-[1fr_1.5fr] gap-10 md:gap-0">
+                            <div className=" border border-[#efefef]">
+                                <img className="border border-[#efefef] w-full" src={product?.image[0]} alt="" />
+
+                            </div>
+                            <div className="ms-5 flex flex-col items-start gap-4">
                                 <div>
                                     <h2 className="text-xl font-semibold text-[#232323] mb-2.5">{product?.title}</h2>
                                     <div className="flex items-center gap-2">
@@ -52,11 +55,11 @@ export default function CartList({ cart, setCart }) {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="ms-5 flex items-start gap-4">
                                 <p className="font-medium text-[#787878]">{product?.details}</p>
-                                <div onClick={() => deleteProduct(product.id)} className="text-2xl text-red-600">
-                                    <MdDelete />
+                                <div onClick={() => deleteProduct(product.id)}>
+                                    <button className="flex items-center gap-1 py-2 px-4 bg-red-600 text-xl text-white rounded-md xl:hover:bg-transparent xl:hover:text-red-600 xl:hover:border-red-600 xl:hover:border transition-colors duration-300">
+                                        <MdDelete /><p className="text-[16px]">Delete Product</p>
+                                    </button>
                                 </div>
                             </div>
 
@@ -64,7 +67,7 @@ export default function CartList({ cart, setCart }) {
                     ))
                 }
 
-                <h2 className="text-xl font-bold flex items-center gap-1 text-[rgb(35,35,35)]">Total Amount = $
+                <h2 className="text-xl font-bold flex items-center gap-1 text-[rgb(35,35,35)] mt-10">Total Amount = $
                     <p className="font-medium text-black">
                         {
                             cart.map(item => item.price * item.count).reduce((total, value) => total + value, 0)
@@ -75,7 +78,7 @@ export default function CartList({ cart, setCart }) {
 
             {cart.length == 0 && (
                 <div>
-                    <h2 className="text-center text-2xl text-[#232323] font-semibold">No Products Availabe in Cart</h2>
+                    <h2 className="text-center text-2xl text-[#232323] font-semibold mt-10 md:mt-0">No Products Availabe in Cart</h2>
                 </div>
             )}
 

@@ -105,6 +105,14 @@ export default function Footer() {
                         </div>
                     </div>
                 </footer>
+
+            {/* Copyright Section  */}
+
+            <div className="border-t-2 border-gray-300/10 text-center">
+                <p className="pt-6 text-sm text-[#232323]">
+                    @copyright 2025 Made By Souvik
+                </p>
+            </div>
             </div>
         </>
     )
