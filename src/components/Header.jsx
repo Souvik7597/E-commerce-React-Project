@@ -60,7 +60,7 @@ export default function Header({ cart }) {
                             navLinks.map((n, i) => (
                                 <Link key={i} to={n.link}>
                                     <li
-                                        onClick={(e) => { n?.drop ? setDropOpen(!dropOpen) : null; e.stopPropagation();e.preventDefault() }}
+                                        onClick={(e) => { n?.drop ? setDropOpen(!dropOpen) : null; n?.drop ?e.stopPropagation(): null;n?.drop ? e.preventDefault() : null }}
 
                                         // onMouseOver={()=>!addEffect ? setDropOpen(true):null}
                                         // onMouseOut={()=>!addEffect ? setDropOpen(false) : null}
