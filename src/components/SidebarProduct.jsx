@@ -6,7 +6,7 @@ export default function SidebarProduct({item}) {
             
             <div  className="flex items-center gap-2">
                 <div >
-                    <img width={120} src={item.image} alt="" />
+                    <img width={120} src={item.image[0]} alt="" />
                 </div>
                 <div>
                     <p className="text-sm text-[#232323] font-medium">{item.title}</p>

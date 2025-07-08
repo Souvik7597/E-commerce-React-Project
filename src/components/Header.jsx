@@ -39,6 +39,7 @@ export default function Header({ cart }) {
             setLoginOpen(false);
             setOpen(false)
             setSearchOpen(false)
+            setDropOpen(false)
         })
 
     }, [])
@@ -59,7 +60,7 @@ export default function Header({ cart }) {
                             navLinks.map((n, i) => (
                                 <Link key={i} to={n.link}>
                                     <li
-                                        onClick={() => { n?.drop ? setDropOpen(!dropOpen) : null }}
+                                        onClick={(e) => { n?.drop ? setDropOpen(!dropOpen) : null; e.stopPropagation();e.preventDefault() }}
 
                                         // onMouseOver={()=>!addEffect ? setDropOpen(true):null}
                                         // onMouseOut={()=>!addEffect ? setDropOpen(false) : null}

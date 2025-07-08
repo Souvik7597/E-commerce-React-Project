@@ -19,11 +19,11 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 
 
-import { productLandingImages, productLandingButtons, products } from "../Utilities/productsCollection"
+import { productLandingButtons, products } from "../Utilities/productsCollection"
 import { useParams } from "react-router";
 import toast, { Toaster } from 'react-hot-toast';
 
-export default function Productlandingpage({setProductId,}) {
+export default function Productlandingpage({ setProductId, }) {
 
   const S = useRef(null)
   const { id } = useParams();
@@ -32,10 +32,9 @@ export default function Productlandingpage({setProductId,}) {
 
   const showLandingProduct = products.slice(0, 4)
 
-  const [click, setClick] = useState(product.image[0]);
 
 
-
+  const [show, setShow] = useState(0);
 
   return (
 
@@ -43,8 +42,10 @@ export default function Productlandingpage({setProductId,}) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-15 mx-auto justify-center mb-10 w-full">
         <Toaster />
         <div>
-          <img className="mb-8 w-full h-[600px]" src={click} alt="" />
-          <Swiper className="w-full relative"
+          {product?.image.map((i, o) => (
+            <img key={o} onMouseEnter={() => setShow(1)} onMouseLeave={() => setShow(0)} className={`h-auto w-full rounded-2xl ${show === o ? "block" : "hidden"}`} src={i} alt="" />
+          ))}
+          <Swiper className="w-full relative mt-3"
             navigation={false}
             modules={[Autoplay, Navigation]}
             onSwiper={(swiper) => S.current = swiper}
@@ -65,10 +66,10 @@ export default function Productlandingpage({setProductId,}) {
 
           >
             {
-              productLandingImages.map((item, i) => (
+              product.image.map((item, i) => (
                 <SwiperSlide key={i}>
 
-                  <img onClick={() => setClick(item)} src={item} alt="" />
+                  <img onClick={() => setShow(i)} src={item} alt="" />
 
                 </SwiperSlide>
               ))
@@ -130,25 +131,22 @@ export default function Productlandingpage({setProductId,}) {
 
           <div className="mb-3">
             <h6 className="text-[#666666] font-semibold mb-2">Color</h6>
+
             <div className="flex items-center gap-2">
-              <button className="flex h-8 w-8 rounded-full bg-transparent border-1 border-[#232323] items-center justify-center">
-                <a className="flex h-6 w-6 rounded-full bg-[#ff0000]" href="#"></a>
-              </button>
-
-              <button className="flex h-8 w-8 rounded-full bg-transparent items-center justify-center">
-                <a className="flex h-6 w-6 rounded-full bg-[#000000]" href="#"></a>
-              </button>
-
-              <button className="flex h-8 w-8 rounded-full bg-transparent items-center justify-center">
-                <a className="flex h-6 w-6 rounded-full bg-[#ffff00]" href="#"></a>
-              </button>
+              {
+                product?.color.map((item, i) => (
+                  <button key={i} className="flex h-8 w-8 rounded-full bg-transparent border-1 items-center justify-center">
+                    <div style={{ background: `${item}` }} onClick={() => setShow(i)} className="flex h-6 w-6  rounded-full" href="#"></div>
+                  </button>
+                ))
+              }
 
             </div>
           </div>
 
 
           <div className="flex items-center gap-5 mb-5">
-            <button onClick={() => {setProductId(product?.id);toast.success("Product added successfully")}} className="py-3.5 px-7 font-semibold text-sm bg-[#ffef97] text-[#232323] w-1/2 hover:bg-[#232323] hover:text-white transition-colors">Add To Cart</button>
+            <button onClick={() => { setProductId(product?.id); toast.success("Product added successfully") }} className="py-3.5 px-7 font-semibold text-sm bg-[#ffef97] text-[#232323] w-1/2 hover:bg-[#232323] hover:text-white transition-colors">Add To Cart</button>
             <button className="py-3.5 px-7 font-bold text-sm bg-[#1990c6] text-white w-1/2 hover:bg-[#136f99] transition-colors">Buy It Now</button>
           </div>
 

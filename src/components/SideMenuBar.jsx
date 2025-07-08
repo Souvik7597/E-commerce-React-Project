@@ -24,7 +24,7 @@ export default function SideMenuBar({ open, setOpen }) {
                                     <Link onClick={(e)=> {
                                         item.link == "#" ? e.preventDefault() :null;
                                         item?.drop ? setDropOpen(!dropOpen) :null;
-                                        // item.link == "#" ? setOpen(true) :setOpen(false);
+                                          setOpen(item.link === "#") 
                                         
                                         }} key={i} to={item.link}>
                                         <li className="flex items-center justify-between border-b border-[#eee] pb-5 text-lg text-black">{item.nav} <span className="text-2xl">{item?.icon}</span></li>

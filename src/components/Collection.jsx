@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 
 import { TfiLayoutColumn4 } from "react-icons/tfi";
@@ -21,12 +21,12 @@ import { GiHamburgerMenu } from "react-icons/gi";
 export default function Collection() {
 
   const [cols, setCols] = useState(() => {
-    return window.innerWidth < 500 ? 1 : window.innerWidth < 767 ? 2 : window.innerWidth < 1200 ? 3 : 4
+    return window.innerWidth < 500 ? 1 : window.innerWidth < 767 ? 2 : window.innerWidth < 1200 ? 3 : 3
   })
 
   useEffect(() => {
     window.addEventListener("resize", () => {
-      setCols(window.innerWidth < 500 ? 1 : window.innerWidth < 767 ? 2 : window.innerWidth < 1200 ? 3 : 4)
+      setCols(window.innerWidth < 500 ? 1 : window.innerWidth < 767 ? 2 : window.innerWidth < 1200 ? 3 : 3)
     })
   }, [])
 
@@ -35,21 +35,32 @@ export default function Collection() {
   const [open, setOpen] = useState(false);
 
   const [openRow, setOpenRow] = useState(false);
+  const [sort, setSort] = useState(null);
+
+
+  function sortRecords(data, type){
+      if (!data )return
+      const clone = [...data];
+      if(type === "asc") return clone.sort((a, b) => a.title.localeCompare(b.title))
+      if(type === "desc") return clone.sort((a, b) => b.title.localeCompare(a.title))
+      if(type === "lth") return clone.sort((a, b) => a.price - b.price)
+      return data
+  }
 
 
 
-  const recordsPerPage = 8;
+  const recordsPerPage = 9;
 
   const lastIndex = page * recordsPerPage;
 
   const firstIndex = lastIndex - recordsPerPage;
 
-  const records = products.slice(firstIndex, lastIndex);
-
+  
   const nPage = Math.ceil(products.length / recordsPerPage);
-
+  
   const numbers = [...Array(nPage + 1).keys()].slice(1);
-
+  
+  const records = useMemo(()=> sortRecords(products.slice(firstIndex, lastIndex),sort) ,[sort,firstIndex,lastIndex]);
 
   function prePage() {
     if (page !== 1) {
@@ -66,6 +77,7 @@ export default function Collection() {
       setPage(page + 1)
     }
   }
+  
 
   return (
     <div className="w-full relative">
@@ -76,7 +88,6 @@ export default function Collection() {
             <TbColumns1 className="block sm:hidden" onClick={() => { setCols(1); setOpenRow(false) }} />
             <TbColumns2 className="hidden sm:block" onClick={() => { setCols(2); setOpenRow(false) }} />
             <TbColumns3 className="hidden md:block" onClick={() => { setCols(3); setOpenRow(false) }} />
-            <TfiLayoutColumn4 className="hidden xl:block" onClick={() => { setCols(4); setOpenRow(false) }} />
             <RxRows onClick={() => setOpenRow(true)} />
           </div>
           <p className="hidden md:block">Showing {products.length} of {products.length} products</p>
@@ -87,11 +98,11 @@ export default function Collection() {
         <div>
           <form className="hidden lg:flex items-center gap-2">
             <label for="cars">Sort By</label>
-            <select className="bg-white border border-[#e9e9e9] p-2 w-50 outline-0" name="products">
-              <option value="Featured">Featured</option>
-              <option value="A-Z">Alphabetically, A-Z</option>
-              <option value="Z-A">Alphabetically, Z-A</option>
-              <option value="low to high">Price, low to high</option>
+            <select className="bg-white border border-[#e9e9e9] p-2 w-50 outline-0" onChange={(e) => setSort(e.target.value)} name="products">
+              <option value="">Featured</option>
+              <option value="asc">Alphabetically, A-Z</option>
+              <option value="desc">Alphabetically, Z-A</option>
+              <option value="lth">Price, low to high</option>
             </select>
           </form>
 
